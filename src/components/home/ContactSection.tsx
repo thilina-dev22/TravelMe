@@ -367,14 +367,14 @@ export function ContactSection() {
                   <a
                     href="mailto:info@travelmelanka.com"
                     className="group flex flex-col items-center gap-3 transition-all duration-300"
-                    title="Gmail"
+                    title="Email"
                   >
                     <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white text-red-500 shadow-md border border-slate-100 transition-all duration-300 group-hover:-translate-y-1 group-hover:bg-red-500 group-hover:text-white group-hover:shadow-lg">
                       <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
                     </div>
-                    <span className="text-sm font-semibold text-slate-600 group-hover:text-slate-900 transition-colors">Gmail</span>
+                    <span className="text-sm font-semibold text-slate-600 group-hover:text-slate-900 transition-colors">Email</span>
                   </a>
                 </div>
               </div>
