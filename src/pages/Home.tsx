@@ -4,7 +4,6 @@ import { OptimizedImage } from '../components/OptimizedImage'
 import { SEO } from '../components/SEO'
 
 import logo from '../assets/logo.png'
-import airplaneImg from '../assets/airplane.png'
 import uncleImg from '../assets/uncle.png'
 import corollaImg from '../assets/corolla.png'
 
@@ -1147,11 +1146,16 @@ export function Home() {
             </div>
 
             <div className="grid gap-6 sm:gap-8 md:grid-cols-2">
-              <div className="hidden md:flex flex-col items-center justify-center">
-                <OptimizedImage 
-                  src={airplaneImg} 
-                  alt="Travel airplane" 
-                  className="w-full h-auto max-w-md" 
+              <div className="flex h-full w-full min-h-[300px] md:min-h-[350px] overflow-hidden rounded-3xl border border-slate-200 shadow-sm">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.2212976226656!2d79.92956971057573!3d6.983190992988605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae257d7cad43d8b%3A0xdba961f4a51efc23!2sTravelMe.lk!5e0!3m2!1sen!2slk!4v1783363609654!5m2!1sen!2slk"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen={true}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="TravelMeLanka Location Map"
                 />
               </div>
 
@@ -1423,7 +1427,14 @@ export function Home() {
                   </div>
                   <div>
                     <p className="font-medium text-white">Location</p>
-                    <p className="mt-1 text-sm">Sri Lanka</p>
+                    <a
+                      href="https://www.google.com/maps/search/?api=1&query=TravelMe.lk"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-1 text-sm text-slate-300 hover:text-white transition-colors duration-200 underline decoration-indigo-400/50 underline-offset-4"
+                    >
+                      Sri Lanka
+                    </a>
                   </div>
                 </li>
                 <li className="flex items-start gap-3 text-slate-300">
@@ -1434,7 +1445,12 @@ export function Home() {
                   </div>
                   <div>
                     <p className="font-medium text-white">Email</p>
-                    <p className="mt-1 text-sm">info@travelmelanka.com</p>
+                    <a
+                      href="mailto:info@travelmelanka.com"
+                      className="mt-1 text-sm text-slate-300 hover:text-white transition-colors duration-200 underline decoration-indigo-400/50 underline-offset-4"
+                    >
+                      info@travelmelanka.com
+                    </a>
                   </div>
                 </li>
               </ul>

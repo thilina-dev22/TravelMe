@@ -311,7 +311,14 @@ export function Reviews() {
                     </div>
                     <div>
                       <p className="font-medium text-white">Location</p>
-                      <p className="mt-1 text-sm">Sri Lanka</p>
+                      <a
+                        href="https://www.google.com/maps/search/?api=1&query=TravelMe.lk"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-1 text-sm text-slate-300 hover:text-white transition-colors duration-200 underline decoration-indigo-400/50 underline-offset-4"
+                      >
+                        Sri Lanka
+                      </a>
                     </div>
                   </li>
                   <li className="flex items-start gap-3 text-slate-300">
@@ -322,7 +329,12 @@ export function Reviews() {
                     </div>
                     <div>
                       <p className="font-medium text-white">Email</p>
-                      <p className="mt-1 text-sm">info@travelmelanka.com</p>
+                      <a
+                        href="mailto:info@travelmelanka.com"
+                        className="mt-1 text-sm text-slate-300 hover:text-white transition-colors duration-200 underline decoration-indigo-400/50 underline-offset-4"
+                      >
+                        info@travelmelanka.com
+                      </a>
                     </div>
                   </li>
                 </ul>
