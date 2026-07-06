@@ -56,6 +56,8 @@ export function SEO({
     updateMetaTag('property', 'og:title', title)
     updateMetaTag('property', 'og:description', description)
     updateMetaTag('property', 'og:type', ogType)
+    updateMetaTag('property', 'og:url', window.location.href)
+    updateMetaTag('property', 'og:site_name', 'TravelMeLanka')
     if (ogImage) {
       updateMetaTag('property', 'og:image', ogImage)
     }

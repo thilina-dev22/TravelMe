@@ -14,11 +14,27 @@ export function Home() {
     "name": "TravelMeLanka",
     "url": "https://travelmelanka.com",
     "logo": "https://travelmelanka.com/assets/logo.png",
+    "image": "https://travelmelanka.com/assets/travel.png",
     "description": "Tailor-made Sri Lankan travel planning & private driver-guided tours.",
+    "telephone": "+94714843570",
+    "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",
-      "addressCountry": "LK",
-      "addressLocality": "Colombo"
+      "streetAddress": "TravelMe.lk, Sri Lanka",
+      "addressLocality": "Colombo",
+      "addressCountry": "LK"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 6.983191,
+      "longitude": 79.929570
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+94714843570",
+      "contactType": "customer support",
+      "areaServed": "LK",
+      "availableLanguage": ["English", "Sinhala"]
     },
     "sameAs": [
       "https://www.facebook.com/travelmelanka",

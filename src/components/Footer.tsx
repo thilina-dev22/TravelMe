@@ -125,8 +125,19 @@ export function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-white/10">
-          <div className="flex items-center justify-center">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-sm text-slate-400">© {new Date().getFullYear()} TravelMeLanka. All rights reserved.</p>
+            <p className="text-sm text-slate-400">
+              Made with ❤️ by{' '}
+              <a
+                href="https://www.paradisecrew.site"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-indigo-400 hover:text-white transition-colors duration-200 underline decoration-indigo-400/30 hover:decoration-white underline-offset-4"
+              >
+                Paradise Crew
+              </a>
+            </p>
           </div>
         </div>
       </div>
