@@ -4,6 +4,7 @@ import { Footer } from '../components/Footer'
 import { HeroSection } from '../components/home/HeroSection'
 import { DestinationsSection } from '../components/home/DestinationsSection'
 import { AboutSection } from '../components/home/AboutSection'
+import { ReviewsSection } from '../components/home/ReviewsSection'
 import { ContactSection } from '../components/home/ContactSection'
 
 export function Home() {
@@ -43,6 +44,7 @@ export function Home() {
         <HeroSection />
         <DestinationsSection />
         <AboutSection />
+        <ReviewsSection />
         <ContactSection />
       </main>
 

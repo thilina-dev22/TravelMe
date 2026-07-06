@@ -67,7 +67,7 @@ export function Footer() {
             <ul className="mt-6 space-y-4">
               <li><a href="/#destinations" className="text-slate-300 hover:text-white transition-colors duration-200 flex items-center gap-2 group"><span className="h-1 w-1 rounded-full bg-indigo-400 group-hover:w-2 transition-all duration-200"></span>Destinations</a></li>
               <li><a href="/#about" className="text-slate-300 hover:text-white transition-colors duration-200 flex items-center gap-2 group"><span className="h-1 w-1 rounded-full bg-indigo-400 group-hover:w-2 transition-all duration-200"></span>About Us</a></li>
-              <li><a href="/reviews" className="text-slate-300 hover:text-white transition-colors duration-200 flex items-center gap-2 group"><span className="h-1 w-1 rounded-full bg-indigo-400 group-hover:w-2 transition-all duration-200"></span>Reviews</a></li>
+              <li><a href="/#reviews" className="text-slate-300 hover:text-white transition-colors duration-200 flex items-center gap-2 group"><span className="h-1 w-1 rounded-full bg-indigo-400 group-hover:w-2 transition-all duration-200"></span>Reviews</a></li>
               <li><a href="/#contact" className="text-slate-300 hover:text-white transition-colors duration-200 flex items-center gap-2 group"><span className="h-1 w-1 rounded-full bg-indigo-400 group-hover:w-2 transition-all duration-200"></span>Contact</a></li>
             </ul>
           </div>

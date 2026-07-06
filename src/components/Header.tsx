@@ -19,7 +19,7 @@ export function Header() {
           <a className="hover:text-slate-900" href="/#about">
             About
           </a>
-          <a className="hover:text-slate-900" href="/reviews">
+          <a className="hover:text-slate-900" href="/#reviews">
             Reviews
           </a>
           <a className="hover:text-slate-900" href="/#contact">
@@ -56,7 +56,7 @@ export function Header() {
             <a className="hover:text-slate-900" href="/#about" onClick={() => setMobileMenuOpen(false)}>
               About
             </a>
-            <a className="hover:text-slate-900" href="/reviews" onClick={() => setMobileMenuOpen(false)}>
+            <a className="hover:text-slate-900" href="/#reviews" onClick={() => setMobileMenuOpen(false)}>
               Reviews
             </a>
             <a className="hover:text-slate-900" href="/#contact" onClick={() => setMobileMenuOpen(false)}>
