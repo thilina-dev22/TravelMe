@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  :root {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased;
+    min-height: 100dvh;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, rgb(99 102 241) 25%, white);
+  }
+
+  /* Prevent zoom on mobile when focusing inputs */
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+
+  @media (min-width: 640px) {
+    input,
+    select,
+    textarea {
+      font-size: 14px !important;
+    }
+  }
+}
+
+@layer utilities {
+  @keyframes tm-fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes tm-float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes tm-shimmer {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes tm-kenburns {
+    0% {
+      transform: scale(1.08);
+    }
+    100% {
+      transform: scale(1.18);
+    }
+  }
+
+  .animate-fade-up {
+    animation: tm-fade-up 700ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+
+  .animate-float {
+    animation: tm-float 6s ease-in-out infinite;
+  }
+
+  .animate-shimmer {
+    background-size: 200% 200%;
+    animation: tm-shimmer 6s ease-in-out infinite;
+  }
+
+  .animate-kenburns {
+    animation: tm-kenburns 8s ease-out both;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-up,
+    .animate-float,
+    .animate-shimmer,
+    .animate-kenburns {
+      animation: none !important;
+    }
+  }
+}
