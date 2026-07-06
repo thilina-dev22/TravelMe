@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { SEO } from '../components/SEO'
 import img1 from '../assets/bg/1.jpg'
 import img2 from '../assets/bg/2.jpg'
 import img3 from '../assets/bg/3.jpg'
@@ -57,6 +58,11 @@ export function Reviews() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Customer Stories & Reviews"
+        description="Read real testimonials and customer reviews from travelers who planned their Sri Lankan journeys with TravelMeLanka."
+        keywords="TravelMe reviews, Sri Lanka travel reviews, customer testimonials"
+      />
       <div className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <div className="absolute -left-48 -top-48 size-136 rounded-full bg-slate-700/30 blur-3xl animate-float" />

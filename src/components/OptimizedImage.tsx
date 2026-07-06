@@ -23,7 +23,6 @@ export function OptimizedImage({
 
   useEffect(() => {
     if (priority) {
-      setIsInView(true)
       return
     }
 
@@ -64,7 +63,7 @@ export function OptimizedImage({
       </div>
 
       {/* Actual image */}
-      {isInView && (
+      {(priority || isInView) && (
         <img
           src={src}
           alt={alt}

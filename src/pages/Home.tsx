@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { OptimizedImage } from '../components/OptimizedImage'
+import { SEO } from '../components/SEO'
 
 import logo from '../assets/logo.png'
 import airplaneImg from '../assets/airplane.png'
@@ -412,8 +413,35 @@ export function Home() {
     return () => window.clearInterval(intervalId)
   }, [heroBackgrounds.length])
 
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "TravelAgency",
+    "name": "TravelMeLanka",
+    "url": "https://travelmelanka.com",
+    "logo": "https://travelmelanka.com/assets/logo.png",
+    "description": "Tailor-made Sri Lankan travel planning & private driver-guided tours.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "LK",
+      "addressLocality": "Colombo"
+    },
+    "sameAs": [
+      "https://www.facebook.com/travelmelanka",
+      "https://www.instagram.com/travelmelanka"
+    ]
+  }
+
   return (
     <div className="min-h-dvh">
+      <SEO
+        title="Custom Sri Lanka Tours & Vacation Packages"
+        description="Plan your dream vacation to Sri Lanka with TravelMeLanka. Custom travel plans, driver-guided tours, and local experiences tailored to your interests."
+        keywords="Sri Lanka travel, Sri Lanka tour, custom travel Sri Lanka, TravelMeLanka, vacation packages"
+        ogImage="/assets/travel.png"
+      />
+      <script type="application/ld+json">
+        {JSON.stringify(schemaData)}
+      </script>
       {/* Loading Overlay */}
       {isSubmitting && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-sm transition-all duration-300">
