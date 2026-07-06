@@ -2,6 +2,11 @@ import { Link } from 'react-router-dom'
 import logo from '../assets/logo.png'
 
 export function Footer() {
+  const handleLogoClick = (e: React.MouseEvent) => {
+    e.preventDefault()
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   return (
     <footer className="relative overflow-hidden bg-linear-to-br from-slate-900 via-slate-800 to-slate-900">
       <div className="absolute inset-0 opacity-30">
@@ -13,7 +18,7 @@ export function Footer() {
       <div className="relative mx-auto max-w-6xl px-4 pt-16 pb-8">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <Link to="/" className="inline-block">
+            <Link to="/" onClick={handleLogoClick} className="inline-block">
               <img src={logo} alt="TravelMeLanka" className="h-16 w-auto brightness-0 invert" />
             </Link>
             <p className="mt-6 text-base text-slate-300 leading-relaxed max-w-md">

@@ -74,7 +74,7 @@ export function ReviewsSection() {
           <div className="grid gap-8 md:grid-cols-3">
             {reviews.map((review) => (
               <article
-                key={review.name}
+                key={`${review.name}-${review.image}`}
                 className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:border-slate-300 hover:shadow-md"
               >
                 <div className="aspect-video overflow-hidden">

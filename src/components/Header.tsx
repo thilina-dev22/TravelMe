@@ -5,10 +5,15 @@ import logo from '../assets/logo.png'
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
+  const handleLogoClick = (e: React.MouseEvent) => {
+    e.preventDefault()
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   return (
     <header className="sticky top-0 z-20 border-b border-slate-200 bg-white/70 backdrop-blur supports-backdrop-filter:bg-white/70">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
-        <Link to="/" className="flex items-center gap-2">
+        <Link to="/" onClick={handleLogoClick} className="flex items-center gap-2">
           <img src={logo} alt="TravelMeLanka" className="h-16 w-auto" />
         </Link>
 
