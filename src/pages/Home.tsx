@@ -337,32 +337,73 @@ export function Home() {
     }
   }
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     const errors = validateForm()
     setFormErrors(errors)
     
     if (Object.keys(errors).length === 0) {
       setIsSubmitting(true)
-      // Simulate API call
-      setTimeout(() => {
+      
+      const apiKey = import.meta.env.VITE_WEB3FORMS_KEY
+      
+      if (!apiKey) {
+        setFormErrors({ submit: "The contact form is missing its configuration API key. Please set VITE_WEB3FORMS_KEY in your Vercel Environment Variables." })
         setIsSubmitting(false)
-        setFormSubmitted(true)
-        setFormData({
-          name: '',
-          country: '',
-          nationality: '',
-          pax: '',
-          arrivalDate: '',
-          departureDate: '',
-          email: '',
-          countryCode: '+94',
-          whatsapp: '',
-          message: ''
+        return
+      }
+
+      const submissionData = {
+        access_key: apiKey,
+        subject: `New Travel Booking Request from ${formData.name}`,
+        from_name: "TravelMeLanka Website",
+        name: formData.name,
+        email: formData.email,
+        country: formData.country,
+        nationality: formData.nationality,
+        pax: formData.pax,
+        arrival_date: formData.arrivalDate,
+        departure_date: formData.departureDate,
+        whatsapp: `${formData.countryCode} ${formData.whatsapp}`,
+        message: formData.message
+      }
+
+      try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify(submissionData)
         })
-        // Reset success message after 5 seconds
-        setTimeout(() => setFormSubmitted(false), 5000)
-      }, 1000)
+
+        const result = await response.json()
+
+        if (result.success) {
+          setFormSubmitted(true)
+          setFormData({
+            name: '',
+            country: '',
+            nationality: '',
+            pax: '',
+            arrivalDate: '',
+            departureDate: '',
+            email: '',
+            countryCode: '+94',
+            whatsapp: '',
+            message: ''
+          })
+          setTimeout(() => setFormSubmitted(false), 5000)
+        } else {
+          setFormErrors({ submit: result.message || "Failed to submit request. Please try again." })
+        }
+      } catch (error) {
+        console.error(error)
+        setFormErrors({ submit: "Failed to send request. Please check your network connection." })
+      } finally {
+        setIsSubmitting(false)
+      }
     }
   }
 
@@ -940,7 +981,7 @@ export function Home() {
                     Message on WhatsApp
                   </a>
                   <a
-                    href="mailto:travelmelankaa@gmail.com"
+                    href="mailto:info@travelmelanka.com"
                     className="group inline-flex items-center gap-2 rounded-xl bg-linear-to-br from-blue-500 to-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:from-blue-600 hover:to-blue-700 hover:shadow-xl hover:scale-105"
                   >
                     <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
@@ -1091,7 +1132,7 @@ export function Home() {
                 </a>
 
                   <a
-                    href="mailto:travelmelankaa@gmail.com"
+                    href="mailto:info@travelmelanka.com"
                     className="group flex flex-col items-center gap-3 transition-all duration-300"
                     title="Gmail"
                   >
@@ -1122,6 +1163,17 @@ export function Home() {
 
                 <form onSubmit={handleFormSubmit} className="rounded-3xl border border-slate-200 p-4 shadow-sm sm:p-6">
                 <div className="grid gap-3">
+                  {formErrors.submit && (
+                    <div className="rounded-xl bg-red-50 p-4 border border-red-200 text-sm text-red-600 flex items-start gap-2">
+                      <svg className="h-5 w-5 shrink-0 text-red-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                      </svg>
+                      <div>
+                        <p className="font-semibold text-slate-900">Submission failed</p>
+                        <p className="mt-1 text-xs text-red-500">{formErrors.submit}</p>
+                      </div>
+                    </div>
+                  )}
                   <div className="grid gap-3 sm:grid-cols-2">
                     <label className="grid gap-1 text-sm">
                       <span className="font-medium text-slate-700">Name <span className="text-red-500">*</span></span>
@@ -1329,7 +1381,7 @@ export function Home() {
                   </svg>
                 </a>
                 <a
-                  href="mailto:travelmelankaa@gmail.com"
+                  href="mailto:info@travelmelanka.com"
                   className="group flex h-12 w-12 items-center justify-center rounded-xl bg-white/10 text-white backdrop-blur-sm border border-white/10 transition-all duration-300 hover:bg-red-500 hover:border-red-500 hover:scale-110 hover:shadow-lg hover:shadow-red-500/25"
                 >
                   <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
@@ -1382,7 +1434,7 @@ export function Home() {
                   </div>
                   <div>
                     <p className="font-medium text-white">Email</p>
-                    <p className="mt-1 text-sm">travelmelankaa@gmail.com</p>
+                    <p className="mt-1 text-sm">info@travelmelanka.com</p>
                   </div>
                 </li>
               </ul>
