@@ -37,8 +37,9 @@ export function Home() {
       "availableLanguage": ["English", "Sinhala"]
     },
     "sameAs": [
-      "https://www.facebook.com/travelmelanka",
-      "https://www.instagram.com/travelmelanka"
+      "https://www.facebook.com/share/1D2nqmnMu5/",
+      "https://www.instagram.com/travelmelanka?igsh=azd3Zmk0and4aWE3",
+      "https://share.google/Hici2yTZee0BNCcAw"
     ]
   }
 
