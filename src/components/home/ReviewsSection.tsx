@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { ScrollReveal } from '../ScrollReveal'
 import img1 from '../../assets/bg/1.jpg'
 import img2 from '../../assets/bg/2.jpg'
@@ -52,6 +53,9 @@ const reviews: Review[] = [
 ]
 
 export function ReviewsSection() {
+  const [isExpanded, setIsExpanded] = useState(false)
+  const displayedReviews = isExpanded ? reviews : reviews.slice(0, 3)
+
   return (
     <section id="reviews" className="border-t border-slate-100 bg-slate-50/50 py-20 sm:py-32">
       <div className="mx-auto max-w-6xl px-4">
@@ -72,7 +76,7 @@ export function ReviewsSection() {
 
         <ScrollReveal>
           <div className="grid gap-8 md:grid-cols-3">
-            {reviews.map((review) => (
+            {displayedReviews.map((review) => (
               <article
                 key={`${review.name}-${review.image}`}
                 className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:border-slate-300 hover:shadow-md"
@@ -120,8 +124,30 @@ export function ReviewsSection() {
           </div>
         </ScrollReveal>
 
+        {reviews.length > 3 && (
+          <ScrollReveal>
+            <div className="mt-10 text-center">
+              <button
+                onClick={() => setIsExpanded(!isExpanded)}
+                className="inline-flex items-center gap-2 rounded-xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white shadow-md hover:bg-slate-800 hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
+              >
+                {isExpanded ? 'Show Less' : 'Show More Reviews'}
+                <svg
+                  className={`h-4 w-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+            </div>
+          </ScrollReveal>
+        )}
+
         <ScrollReveal>
-          <div className="mt-16 text-center">
+          <div className="mt-12 text-center">
             <a
               href="https://share.google/Hici2yTZee0BNCcAw"
               target="_blank"
